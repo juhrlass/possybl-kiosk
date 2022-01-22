@@ -1,0 +1,59 @@
+
+
+.green.status__circle {
+  stroke: darkgreen;
+}
+
+.red.status__circle {
+  stroke: darkred;
+}
+
+.status {
+  @apply w-12;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 4;
+  stroke-miterlimit: 10;
+  stroke: black;
+  box-shadow: inset 0px 0px 0px #7ac142;
+}
+
+.status__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 4;
+  stroke-miterlimit: 10;
+  fill: none;
+  stroke: black;
+  animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.status__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: darkgreen;
+  animation: stroke 0.5s cubic-bezier(0.65, 0, 0.45, 1) 0.3s forwards;
+}
+
+.status__cross {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: darkred;
+  animation: stroke 0.5s cubic-bezier(0.65, 0, 0.45, 1) 0.3s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}

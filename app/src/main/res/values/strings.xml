@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">possybl-kiosk</string>
+    <string name="err_not_device_owner">App is not a device owner!</string>
+    <string name="err_locktask_not_permitted">App is not allowed to use lock task!</string>
+    <string name="reloadButton">Reload Current Page</string>
+    <string name="settingsButton">System Settings</string>
+
+    <string name="version_code">VersionCode</string>
+    <string name="build_string">Build</string>
+    <string name="version_name">version_name</string>
+    <string name="settings_info_header">Settings</string>
+    <string name="settings_version_string">Version</string>
+    <string name="settings_update_button">Update Kiosk App</string>
+    <string name="clearDeviceOwnerButton">Remove Device Owner</string>
+    <string name="rebootButton">Reboot</string>
+    <string name="app_is_device_owner">App is device owner!</string>
+    <string name="download_in_progress">Update is downloading:</string>
+    <string name="defaultUrlButton">Set Default URL</string>
+    <string name="customUrlButton">Set Custom URL</string>
+    <string name="EnableAdbOverTcp">Enable ADB over TCP</string>
+    <string name="DisableAdbOverTcp">Disable ADB over TCP</string>
+    <string name="hasAdbOverTcpEnabled">ADB over TCP: %1$s:%2$s</string>
+    <string name="lockTaskButton">Lock Kiosk</string>
+    <string name="unlockTaskButton">Unlock Kiosk</string>
+    <string name="is_root">Is Root</string>
+    <string name="is_device_owner">Is Device Owner</string>
+    <string name="is_lock_task_permitted">Is Lock Task permitted</string>
+    <string name="is_locked">Is locked</string>
+    <string name="has_network_connection">Network Connected</string>
+    <string name="has_write_secure_settings_permission">WRITE_SECURE_SETTINGS_PERMISSION</string>
+    <string name="has_access_fine_location_permission">ACCESS_FINE_LOCATION_PERMISSION</string>
+    <string name="has_internet_connection">Internet Connected</string>
+    <string name="has_backend_connection">Backend Connection</string>
+    <string name="refreshStateButton">Refresh</string>
+    <string name="settings_survey_webapp_url_string">SURVEY_WEBAPP_URL:</string>
+    <string name="settings_api_base_url_string">API_BASE_URL</string>
+    <string name="settings_information_subheadline">Information</string>
+    <string name="settings_url_subheadline">Custom URL</string>
+    <string name="settings_actions_subheadline">Actions</string>
+    <string name="settings_placeholder_app_version">App Version</string>
+    <string name="settings_placeholder_webapp_url">survey webapp url</string>
+    <string name="settings_placeholder_api_url">api base url</string>
+    <string name="settings_danger_zone">Danger Zone</string>
+    <string name="settings_close">Close Settings</string>
+</resources>

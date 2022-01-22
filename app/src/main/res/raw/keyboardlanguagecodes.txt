@@ -1,0 +1,243 @@
+# de.ecube.kioskkeyboard language codes and hashes
+# Afrikaans
+af=1872175968
+
+# Arabisch
+ar=1494081088
+
+# Aserbaidschanisch - Aserbaidschan
+az_AZ=1890646388
+
+# Belorussisch - Weißrussland (Belarus)
+be_BY=499361881
+
+# Bulgarisch
+bg=195674344
+
+# Bulgarisch
+bg=1599191706
+
+# Bengalisch - Bangladesch
+bn_BD=-1575728372
+
+# Bengalisch - Indien
+bn_IN=-1074423700
+
+# Katalanisch
+ca=-756735787
+
+# Tschechisch
+cs=758984400
+
+# Dänisch
+da=770990173
+
+# Deutsch
+de=-2100883654
+
+# Deutsch
+de=774684257
+
+# Deutsch - Schweiz
+de_CH=2060439722
+
+# Griechisch
+el=242746067
+
+# Englisch - Vereinigtes Königreich (Großbritannien und Nordirland)
+en_GB=-1337596075
+
+# Englisch - Indien
+en_IN=-1923548115
+
+# Englisch - USA
+en_US=-921088104
+
+# Esperanto
+eo=1083200842
+
+# Spanisch
+es=816242702
+
+# Spanisch
+es_419=-1572971239
+
+# Spanisch - USA
+es_US=-2066550842
+
+# Estnisch - Estland
+et_EE=-332580523
+
+# Baskisch - Spanien
+eu_ES=118381575
+
+# Persisch
+fa=-1100561836
+
+# Finnisch
+fi=835636643
+
+# Französisch
+fr=843948332
+
+# Französisch
+fr=-786855098
+
+# Französisch - Kanada
+fr_CA=-354699631
+
+# Französisch - Schweiz
+fr_CH=-354658827
+
+# Galizisch - Spanien
+gl_ES=-1187424452
+
+# Hindi
+hi=963984255
+
+# Hindi
+hi=-459503199
+
+# Kroatisch
+hr=901206634
+
+# Ungarisch
+hu=903977197
+
+# Armenisch - Armenien
+hy_AM=-476396598
+
+# Indisch
+in=2108597344
+
+# Isländisch
+is=2113214949
+
+# Italienisch
+it=931682827
+
+# Italienisch - Schweiz
+it_CH=-652935654
+
+# Hebräisch (veraltet, nun: he)
+iw=1727731901
+
+# Georgisch - Georgien
+ka_GE=1846648426
+
+# Kasachisch
+kk=762565366
+
+# Kambodschanisch - Kambodscha
+km_KH=325412922
+
+# Kannada - ohne Ländercode
+kn_IN=-1938291121
+
+# Kirgisisch
+ky=775494660
+
+# Laotisch - Laos
+lo_LA=-2095745236
+
+# Litauisch
+lt=-2094941373
+
+# Lettisch
+lv=-2093094331
+
+# Mazedonisch
+mk=-1353667716
+
+# Malajalam - Indien
+ml_IN=-1048384556
+
+# Mongolisch - Mongolei
+mn_MN=-842021973
+
+# Marathi - Indien
+mr_IN=1954258691
+
+# Malaysisch - Malaysia
+ms_MY=-2067235743
+
+# Norwegian bokmål
+nb=1058205204
+
+# Nepalesisch - Nepal
+ne_NP=-670413586
+
+# Nepalesisch - Nepal
+ne_NP=1605364360
+
+# Niederländisch
+nl=1067440414
+
+# Niederländisch - Belgien
+nl_BE=1343007020
+
+# Polnisch
+pl=1124698716
+
+# Portugiesisch - Brasilien
+pt_BR=-889195354
+
+# Portugiesisch - Portugal
+pt_PT=-486540198
+
+# Rumänisch
+ro=-1927784072
+
+# Russisch
+ru=1983547218
+
+# Slowakisch
+sk=-1902849005
+
+# Slowenisch
+sl=-1901925484
+
+# Serbisch
+sr=2009405806
+
+# Serbisch - ZZ = Platzhalter wenn kein Ländercode vergeben
+sr_ZZ=-190490980
+
+# Schwedisch
+sv=1219821379
+
+# Suaheli
+sw=-1891766753
+
+# Tamilisch - Indien
+ta_IN=1739385386
+
+# Tamilisch - Singapur
+ta_SG=2019212249
+
+# Tegulu - Indien
+te_IN=504853385
+
+# Thai
+th=529847764
+
+# Tagalog
+tl=-259881489
+
+# Türkisch
+tr=1244756446
+
+# Ukrainisch
+uk=1048856876
+
+# Urdu
+ur=605677391
+
+# Usbekisch - Usbekistan
+uz_UZ=-1386416138
+
+# Vietnamesisch
+vi=-1818808594
+
+# Zulu
+zu=-1693209738

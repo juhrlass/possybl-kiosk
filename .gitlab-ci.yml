@@ -1,0 +1,58 @@
+image: androidsdk/android-30
+
+stages:
+  - preBuild
+  - build_and_deploy
+
+
+
+cache:
+  paths:
+    - .gradle/wrapper
+    - .gradle/caches
+    - ./app/src/main/assets/
+
+preBuild_assets:
+  stage: preBuild
+  image: mhart/alpine-node:15.9.0
+  script:
+    - cd ./app/src/main/html/kiosk-html
+    - yarn install --frozen-lockfile
+    - yarn build
+
+.deployment_script_template: &deployment_script_template
+  stage: build_and_deploy
+  before_script:
+    #  - echo `pwd` # debug
+    #  - echo "$CI_BUILD_NAME, $CI_BUILD_REF_NAME $CI_BUILD_STAGE" # debug
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - ./gradlew build -x yarnBuild
+    - eval $(ssh-agent -s)
+    - echo "$NIKOLA_DEPLOYMENT_KEY" | tr -d '\r' | ssh-add -
+    - scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no app/build/outputs/apk/release/app-release.apk $TARGET_SERVER_USER@$TARGET_SERVER_HOST:/home/nikola/nikola-kiosk/nikola-kiosk.apk
+    - scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no app/build/version.txt $TARGET_SERVER_USER@$TARGET_SERVER_HOST:/home/nikola/nikola-kiosk/version.txt
+
+  after_script:
+    - echo "Finished"
+
+
+deploy_dev:
+  <<: *deployment_script_template
+  variables:
+    TARGET_SERVER_HOST: "dev.nikola.hellomirrors.com"
+    TARGET_SERVER_USER: "nikola"
+    ORG_GRADLE_PROJECT_SURVEY_WEBAPP_URL: "https://survey.dev.nikola.hellomirrors.com"
+    ORG_GRADLE_PROJECT_API_BASE_URL: "https://api.dev.nikola.hellomirrors.com"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+
+deploy_prod:
+  <<: *deployment_script_template
+  variables:
+    TARGET_SERVER_HOST: "prod.nikola.hellomirrors.com"
+    TARGET_SERVER_USER: "nikola"
+    ORG_GRADLE_PROJECT_SURVEY_WEBAPP_URL: "https://survey.prod.nikola.hellomirrors.com"
+    ORG_GRADLE_PROJECT_API_BASE_URL: "https://api.prod.nikola.hellomirrors.com"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "production"'

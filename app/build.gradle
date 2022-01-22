@@ -1,0 +1,115 @@
+import java.time.Instant
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
+import org.apache.tools.ant.taskdefs.condition.Os
+
+
+apply plugin: 'com.android.application'
+
+
+static def getTimestamp() {
+    Instant nowUtc = Instant.now()
+    ZoneId europeBerlin = ZoneId.of("Europe/Berlin")
+    ZonedDateTime nowEuropeBerlin = ZonedDateTime.ofInstant(nowUtc, europeBerlin)
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_z")
+    return nowEuropeBerlin.format(formatter)
+}
+
+def buildDate = "${getTimestamp()}"
+
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def buildVersionName = "${versionMajor}.${versionMinor}.${versionPatch}-build-${buildDate}"
+
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        applicationId "de.ecube.kioskweb"
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 1
+        versionName "${buildVersionName}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "SURVEY_WEBAPP_URL", "\"${SURVEY_WEBAPP_URL}\""
+        buildConfigField "String", "API_BASE_URL", "\"${API_BASE_URL}\""
+    }
+    signingConfigs {
+        release {
+            // You need to specify either an absolute path or include the
+            // keystore file in the same directory as the build.gradle file.
+            storeFile file("keystore.jks")
+            storePassword "possybl@2021"
+            keyAlias "key0"
+            keyPassword "possybl@2021"
+            // keytool -importkeystore -srckeystore C:\project\ecube\customer\hellomirrors\customer\tesla\possybl\possybl-kiosk\app\keystore.jks -destkeystore C:\project\ecube\customer\hellomirrors\customer\tesla\possybl\possybl-kiosk\app\keystore.jks -deststoretype pkcs12
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+    implementation 'androidx.webkit:webkit:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.pnikosis:materialish-progress:1.7'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'com.scottyab:rootbeer-lib:0.0.8'
+
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'me.weishu:free_reflection:3.0.1'
+
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:4.9.0'
+
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+
+task writeVersionText() {
+    doLast {
+        new File(buildDir, "version.txt").text = buildVersionName
+    }
+}
+
+
+tasks.register("yarnBuild") {
+    doLast {
+        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+            exec {
+                workingDir 'src/main/html/kiosk-html'
+                commandLine "cmd", "/c", 'yarn', 'build'
+            }
+        }
+        if (!Os.isFamily(Os.FAMILY_WINDOWS)) {
+            exec {
+                workingDir 'src/main/html/kiosk-html'
+                commandLine 'yarn', 'build'
+            }
+        }
+
+    }
+}
+
+build.dependsOn(writeVersionText)
+preBuild.finalizedBy(yarnBuild)

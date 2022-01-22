@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@color/colorMenuBackground">
+
+    <!-- Headline -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/settings_info_header"
+            android:textColor="@color/colorMenuForeground"
+            android:textSize="@dimen/fontSizeHeadline"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:id="@+id/about__app_version_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="@dimen/fontSizeText"
+            android:textColor="@color/colorMenuForeground"
+            android:text="@string/settings_placeholder_app_version" />
+    </LinearLayout>
+
+    <!-- Information Subheadline -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10sp"
+            android:layout_marginHorizontal="16sp"
+            android:paddingHorizontal="14sp"
+            android:text="@string/settings_information_subheadline"
+            android:layout_centerInParent="false"
+            android:textSize="@dimen/fontSizeSubHeadline"
+            android:textStyle="normal|bold"
+            android:textColor="@color/colorMenuForeground"/>
+    </RelativeLayout>
+
+    <!-- Default URL Informations -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alignmentMode="alignMargins"
+        android:background="@color/colorMenuForeground"
+        android:columnCount="2"
+        android:padding="14sp"
+        android:rowCount="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16sp"
+                    android:paddingEnd="8sp"
+                    android:textSize="@dimen/fontSizeText"
+                    android:textStyle="bold"
+                    android:text="@string/settings_survey_webapp_url_string" />
+
+                <TextView
+                    android:id="@+id/about__app_survey_webapp_url"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="8sp"
+                    android:paddingEnd="8sp"
+                    android:text="@string/settings_placeholder_webapp_url"
+                    android:textSize="@dimen/fontSizeText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16sp"
+                    android:paddingEnd="8sp"
+                    android:textSize="@dimen/fontSizeText"
+                    android:textStyle="bold"
+                    android:text="@string/settings_api_base_url_string" />
+
+                <TextView
+                    android:id="@+id/about__app_api_base_url"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="8sp"
+                    android:paddingEnd="8sp"
+                    android:textSize="@dimen/fontSizeText"
+                    android:text="@string/settings_placeholder_api_url" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="top|end"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnRefreshState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal|fill_vertical"
+                android:layout_marginEnd="16sp"
+                android:background="@drawable/btn_bg_dark_selector"
+                android:textColorLink="@color/colorButtonHighlightDark"
+                android:text="@string/refreshStateButton"
+                android:textColor="@color/colorMenuForeground"
+                android:textSize="@dimen/fontSizeCardButton" />
+        </LinearLayout>
+    </GridLayout>
+
+    <!-- Information Checkboxes -->
+    <GridLayout
+        android:columnCount="2"
+        android:rowCount="4"
+        android:alignmentMode="alignMargins"
+        android:padding="14sp"
+        android:background="@color/colorMenuForeground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/checkBoxHasNetworkConnection"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="16sp"
+            android:checked="false"
+            android:enabled="false"
+            android:minHeight="48sp"
+            android:text="@string/has_network_connection"
+            android:textColor="@color/colorMenuBackground"
+            android:textSize="@dimen/fontSizeText" />
+
+        <CheckBox
+            android:id="@+id/checkBoxHasInternetConnection"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="16sp"
+            android:checked="false"
+            android:enabled="false"
+            android:minHeight="48sp"
+            android:text="@string/has_internet_connection"
+            android:textColor="@color/colorMenuBackground"
+            android:textSize="@dimen/fontSizeText" />
+
+        <CheckBox
+            android:id="@+id/checkBoxHasBackendConnection"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="16sp"
+            android:checked="false"
+            android:enabled="false"
+            android:minHeight="48sp"
+            android:text="@string/has_backend_connection"
+            android:textColor="@color/colorMenuBackground"
+            android:textSize="@dimen/fontSizeText" />
+
+        <CheckBox
+            android:id="@+id/checkBoxIsRoot"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="16sp"
+            android:checked="false"
+            android:enabled="false"
+            android:minHeight="48sp"
+            android:text="@string/is_root"
+            android:textColor="@color/colorMenuBackground"
+            android:textSize="@dimen/fontSizeText" />
+
+        <CheckBox
+            android:id="@+id/checkBoxIsDeviceOwner"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="16sp"
+            android:checked="false"
+            android:enabled="false"
+            android:minHeight="48sp"
+            android:text="@string/is_device_owner"
+            android:textColor="@color/colorMenuBackground"
+            android:textSize="@dimen/fontSizeText" />
+
+        <CheckBox
+            android:id="@+id/checkBoxIsLockTaskPermitted"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="16sp"
+            android:checked="false"
+            android:enabled="false"
+            android:minHeight="48sp"
+            android:text="@string/is_lock_task_permitted"
+            android:textColor="@color/colorMenuBackground"
+            android:textSize="@dimen/fontSizeText" />
+
+        <CheckBox
+            android:id="@+id/checkBoxHasWriteSecureSettingsPermission"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="16sp"
+            android:checked="false"
+            android:enabled="false"
+            android:minHeight="48sp"
+            android:text="@string/has_write_secure_settings_permission"
+            android:textColor="@color/colorMenuBackground"
+            android:textSize="@dimen/fontSizeText" />
+
+        <CheckBox
+            android:id="@+id/checkBoxHasAccessFineLocationPermission"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="16sp"
+            android:checked="false"
+            android:enabled="false"
+            android:minHeight="48sp"
+            android:text="@string/has_access_fine_location_permission"
+            android:textColor="@color/colorMenuBackground"
+            android:textSize="@dimen/fontSizeText" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAdbOverTcpEnabled"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="16sp"
+            android:checked="false"
+            android:enabled="false"
+            android:minHeight="48sp"
+            android:text="@string/hasAdbOverTcpEnabled"
+            android:textColor="@color/colorMenuBackground"
+            android:textSize="@dimen/fontSizeText" />
+    </GridLayout>
+
+    <!-- Custom URL Subheadline -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10sp"
+            android:layout_marginHorizontal="16sp"
+            android:paddingHorizontal="14sp"
+            android:text="@string/settings_url_subheadline"
+            android:layout_centerInParent="false"
+            android:textSize="@dimen/fontSizeSubHeadline"
+            android:textStyle="normal|bold"
+            android:textColor="@color/colorMenuForeground"/>
+    </RelativeLayout>
+
+    <!-- Custom URL Actions -->
+    <LinearLayout
+        android:background="@color/colorMenuForeground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="14sp"
+        android:orientation="horizontal">
+        <AutoCompleteTextView
+            android:id="@+id/customUrlText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="16sp"
+            android:inputType="textUri"
+            android:layout_weight="1"
+            android:minHeight="48sp"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/btnCustomUrl"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:paddingHorizontal="10sp"
+            android:layout_marginStart="16sp"
+            android:minHeight="48sp"
+            android:background="@drawable/btn_bg_dark_selector"
+            android:textColor="@color/colorMenuForeground"
+            android:text="@string/customUrlButton" />
+
+        <Button
+            android:id="@+id/btnDefaultUrl"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:paddingHorizontal="10sp"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:minHeight="48sp"
+            android:background="@drawable/btn_bg_dark_selector"
+            android:textColor="@color/colorMenuForeground"
+            android:text="@string/defaultUrlButton" />
+
+    </LinearLayout>
+
+    <!-- Actions Subheadline -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10sp"
+            android:layout_marginHorizontal="16sp"
+            android:paddingHorizontal="14sp"
+            android:text="@string/settings_actions_subheadline"
+            android:layout_centerInParent="false"
+            android:textSize="@dimen/fontSizeSubHeadline"
+            android:textStyle="normal|bold"
+            android:textColor="@color/colorMenuForeground"/>
+    </RelativeLayout>
+
+    <!-- Buttons -->
+    <GridLayout
+        android:columnCount="4"
+        android:rowCount="4"
+        android:alignmentMode="alignMargins"
+        android:padding="14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Row 1 -->
+        <!-- Row 1 -> Column 1 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0sp"
+            android:layout_height="@dimen/cardButtonHeight"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="16sp"
+            android:layout_marginBottom="16sp"
+            app:cardCornerRadius="8sp"
+            app:cardElevation="8sp">
+
+            <Button
+                android:id="@+id/btnSettings"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal|fill_vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:background="@drawable/btn_bg_light_selector"
+                android:textColor="@color/colorMenuBackground"
+                android:textSize="@dimen/fontSizeCardButton"
+                android:text="@string/settingsButton" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Row 1 -> Column 2 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0sp"
+            android:layout_height="@dimen/cardButtonHeight"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="16sp"
+            android:layout_marginBottom="16sp"
+            app:cardCornerRadius="8sp"
+            app:cardElevation="8sp">
+
+            <Button
+                android:id="@+id/btnReload"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal|fill_vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:background="@drawable/btn_bg_light_selector"
+                android:textColor="@color/colorMenuBackground"
+                android:textSize="@dimen/fontSizeCardButton"
+                android:text="@string/reloadButton" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Row 1 -> Column 3 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0sp"
+            android:layout_height="@dimen/cardButtonHeight"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="16sp"
+            android:layout_marginBottom="16sp"
+            app:cardCornerRadius="8sp"
+            app:cardElevation="8sp">
+
+            <Button
+                android:id="@+id/btnLockTask"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal|fill_vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:background="@drawable/btn_bg_light_selector"
+                android:textColor="@color/colorMenuBackground"
+                android:textSize="@dimen/fontSizeCardButton"
+                android:text="@string/lockTaskButton" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Row 1 -> Column 4 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0sp"
+            android:layout_height="@dimen/cardButtonHeight"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="16sp"
+            android:layout_marginBottom="16sp"
+            app:cardCornerRadius="8sp"
+            app:cardElevation="8sp">
+
+            <Button
+                android:id="@+id/btnUnlockTask"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal|fill_vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:background="@drawable/btn_bg_light_selector"
+                android:textColor="@color/colorMenuBackground"
+                android:textSize="@dimen/fontSizeCardButton"
+                android:text="@string/unlockTaskButton" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Row 2 -->
+        <!-- Row 2 -> Column 1 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0sp"
+            android:layout_height="@dimen/cardButtonHeight"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="16sp"
+            android:layout_marginBottom="16sp"
+            app:cardCornerRadius="8sp"
+            app:cardElevation="8sp">
+
+            <ToggleButton
+                android:id="@+id/btnAdbOverTcp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal|fill_vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:background="@drawable/btn_bg_light_selector"
+                android:textColor="@color/colorMenuBackground"
+                android:textSize="@dimen/fontSizeCardButton"
+                android:checked="false"
+                android:textOn="@string/DisableAdbOverTcp"
+                android:textOff="@string/EnableAdbOverTcp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Row 2 -> Column 2 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0sp"
+            android:layout_height="@dimen/cardButtonHeight"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="16sp"
+            android:layout_marginBottom="16sp"
+            app:cardCornerRadius="8sp"
+            app:cardElevation="8sp">
+
+            <Button
+                android:id="@+id/btnReboot"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal|fill_vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:background="@drawable/btn_bg_light_selector"
+                android:textColor="@color/colorMenuBackground"
+                android:textSize="@dimen/fontSizeCardButton"
+                android:text="@string/rebootButton" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Row 2 -> Column 3 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0sp"
+            android:layout_height="@dimen/cardButtonHeight"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="16sp"
+            android:layout_marginBottom="16sp"
+            app:cardCornerRadius="8sp"
+            app:cardElevation="8sp">
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal|fill_vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:background="@drawable/btn_bg_light_selector"
+                android:textColor="@color/colorMenuBackground"
+                android:textSize="@dimen/fontSizeCardButton"
+                android:text="@string/settings_update_button"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Row 2 -> Column 4 -->
+
+    <!-- Danger Zone Subheadline -->
+        <TextView
+            android:layout_columnSpan="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16sp"
+            android:paddingHorizontal="14sp"
+            android:paddingVertical="8sp"
+            android:background="@color/colorBackgroundDanger"
+            android:text="@string/settings_danger_zone"
+            android:layout_centerInParent="false"
+            android:textSize="@dimen/fontSizeSubHeadline"
+            android:textStyle="normal|bold"
+            android:textColor="@color/colorMenuForeground"/>
+
+        <!-- Row 3 -->
+        <!-- Row 3 -> Column 1 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0sp"
+            android:layout_height="@dimen/cardButtonHeight"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="16sp"
+            android:layout_marginBottom="16sp"
+            app:cardCornerRadius="8sp"
+            app:cardElevation="8sp">
+
+            <Button
+                android:id="@+id/btnClearDeviceOwner"
+                android:layout_gravity="fill_horizontal|fill_vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:background="@drawable/btn_bg_danger_selector"
+                android:textColor="@color/colorMenuForeground"
+                android:textSize="@dimen/fontSizeCardButton"
+                android:text="@string/clearDeviceOwnerButton" />
+        </androidx.cardview.widget.CardView>
+    </GridLayout>
+    <RelativeLayout
+        android:paddingVertical="14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16sp"
+            android:paddingHorizontal="48sp"
+            android:text="@string/settings_close"
+            android:background="@drawable/btn_bg_green_selector"
+            android:layout_centerInParent="false"
+            android:textSize="@dimen/fontSizeHeadline"
+            android:textStyle="normal|bold"
+            android:textColor="@color/colorMenuForeground"/>
+    </RelativeLayout>
+</LinearLayout>
