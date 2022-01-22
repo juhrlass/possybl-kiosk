@@ -29,9 +29,9 @@ preBuild_assets:
   script:
     - ./gradlew build -x yarnBuild
     - eval $(ssh-agent -s)
-    - echo "$NIKOLA_DEPLOYMENT_KEY" | tr -d '\r' | ssh-add -
-    - scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no app/build/outputs/apk/release/app-release.apk $TARGET_SERVER_USER@$TARGET_SERVER_HOST:/home/nikola/nikola-kiosk/nikola-kiosk.apk
-    - scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no app/build/version.txt $TARGET_SERVER_USER@$TARGET_SERVER_HOST:/home/nikola/nikola-kiosk/version.txt
+    - echo "$POSSYBL_DEPLOYMENT_KEY" | tr -d '\r' | ssh-add -
+    - scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no app/build/outputs/apk/release/app-release.apk $TARGET_SERVER_USER@$TARGET_SERVER_HOST:/home/possybl/possybl-kiosk/possybl-kiosk.apk
+    - scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no app/build/version.txt $TARGET_SERVER_USER@$TARGET_SERVER_HOST:/home/possybl/possybl-kiosk/version.txt
 
   after_script:
     - echo "Finished"
@@ -40,19 +40,19 @@ preBuild_assets:
 deploy_dev:
   <<: *deployment_script_template
   variables:
-    TARGET_SERVER_HOST: "dev.nikola.hellomirrors.com"
-    TARGET_SERVER_USER: "nikola"
-    ORG_GRADLE_PROJECT_SURVEY_WEBAPP_URL: "https://survey.dev.nikola.hellomirrors.com"
-    ORG_GRADLE_PROJECT_API_BASE_URL: "https://api.dev.nikola.hellomirrors.com"
+    TARGET_SERVER_HOST: "dev.possybl.hellomirrors.com"
+    TARGET_SERVER_USER: "possybl"
+    ORG_GRADLE_PROJECT_SURVEY_WEBAPP_URL: "https://survey.dev.possybl.hellomirrors.com"
+    ORG_GRADLE_PROJECT_API_BASE_URL: "https://api.dev.possybl.hellomirrors.com"
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
 
 deploy_prod:
   <<: *deployment_script_template
   variables:
-    TARGET_SERVER_HOST: "prod.nikola.hellomirrors.com"
-    TARGET_SERVER_USER: "nikola"
-    ORG_GRADLE_PROJECT_SURVEY_WEBAPP_URL: "https://survey.prod.nikola.hellomirrors.com"
-    ORG_GRADLE_PROJECT_API_BASE_URL: "https://api.prod.nikola.hellomirrors.com"
+    TARGET_SERVER_HOST: "prod.possybl.hellomirrors.com"
+    TARGET_SERVER_USER: "possybl"
+    ORG_GRADLE_PROJECT_SURVEY_WEBAPP_URL: "https://survey.prod.possybl.hellomirrors.com"
+    ORG_GRADLE_PROJECT_API_BASE_URL: "https://api.prod.possybl.hellomirrors.com"
   rules:
     - if: '$CI_COMMIT_BRANCH == "production"'
