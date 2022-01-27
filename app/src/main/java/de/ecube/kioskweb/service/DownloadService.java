@@ -171,7 +171,7 @@ public final class DownloadService {
     }
 
     /**
-     * Listner
+     * Listener
      */
     interface ProgressListener {
         void update(long bytesRead, long contentLength, boolean done);
